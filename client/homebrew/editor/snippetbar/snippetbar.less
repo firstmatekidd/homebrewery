@@ -7,6 +7,7 @@
 	position         : relative;
 	display          : flex;
 	flex-wrap        : wrap-reverse;
+	reading-flow     : flex-visual;
 	justify-content  : space-between;
 	height           : auto;
 	color            : black;
@@ -20,6 +21,7 @@
 		display         : flex;
 		justify-content : flex-start;
 		min-width       : 499.35px;  //must be controlled every time an item is added, must be hardcoded for the wrapping as it is applied
+		reading-order   : 1;
 	}
 
 	.editors {
@@ -28,6 +30,7 @@
 		min-width       : 250px; //must be controlled every time an item is added, must be hardcoded for the wrapping as it is applied
 		font-size: .85rem;
 		&:only-child {min-width   : unset; margin-left : auto;}
+		reading-order   : 2;
 
 		>div {
 			display         : flex;
@@ -248,10 +251,12 @@
 			flex            : 1;
 			justify-content : space-between;
 			border-bottom   : 1px solid;
+			reading-order   : 1;
 		}
 		.snippets { 
 			flex            : 1;
 			justify-content : space-evenly; 
+			reading-order   : 2;
 		}
 		.editors > div.history > .dropdown { right : unset; }
 	}
