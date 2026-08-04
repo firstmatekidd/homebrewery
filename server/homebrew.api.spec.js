@@ -1143,6 +1143,7 @@ brew`);
 					'renderer: legacy\n' +
 					'theme: 5ePHB\n' +
 					'lang: en\n' +
+					'direction: ltr\n' +
 					'\n' +
 					'```\n' +
 					'\n' +
