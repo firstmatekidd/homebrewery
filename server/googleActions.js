@@ -153,6 +153,7 @@ const GoogleActions = {
 				published   : file.properties.published ? file.properties.published == 'true' : false,
 				lang        : file.properties.lang,
 				thumbnail   : file.properties.thumbnail,
+				direction   : file.properties.direction,
 				webViewLink : file.webViewLink
 			};
 		});
@@ -174,7 +175,8 @@ const GoogleActions = {
 					pageCount : brew.pageCount,
 					renderer  : brew.renderer || 'legacy',
 					isStubbed : true,
-					lang      : brew.lang || 'en'
+					lang      : brew.lang || 'en',
+					direction : brew.direction || 'ltr'
 				}
 			},
 			media : {
@@ -216,7 +218,8 @@ const GoogleActions = {
 				renderer  : brew.renderer || 'legacy',
 				isStubbed : true,
 				version   : 1,
-				lang      : brew.lang || 'en'
+				lang      : brew.lang || 'en',
+				direction : brew.direction || 'ltr'
 			}
 		};
 
@@ -310,7 +313,8 @@ const GoogleActions = {
 				version    : parseInt(obj.data.properties.version) || 0,
 				renderer   : obj.data.properties.renderer ? obj.data.properties.renderer : 'legacy',
 
-				googleId : id
+				googleId   : id,
+				direction  : obj.data.properties.direction
 			};
 
 			return (brew);

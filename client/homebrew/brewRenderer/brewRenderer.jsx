@@ -102,6 +102,7 @@ const BrewRenderer = (props)=>{
 		renderer                   : 'legacy',
 		theme                      : '5ePHB',
 		lang                       : '',
+		direction                  : 'ltr',
 		errors                     : [],
 		currentEditorCursorPageNum : 1,
 		currentEditorViewPageNum   : 1,

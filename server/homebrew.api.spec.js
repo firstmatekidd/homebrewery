@@ -78,7 +78,8 @@ describe('Tests for api', ()=>{
 			version     : 1,
 			pageCount   : 1,
 			textBin     : '',
-			views       : 0
+			views       : 0,
+			direction   : 'ltr'
 		};
 		googleBrew = {
 			...hbBrew,
@@ -380,6 +381,7 @@ describe('Tests for api', ()=>{
 					width: '8.5in',
 					height: '11in',
 				},
+				direction   : 'ltr'
 			});
 			expect(next).toHaveBeenCalled();
 			expect(api.getId).toHaveBeenCalledWith(req);
@@ -708,6 +710,7 @@ brew`);
 				trashed     : false,
 				updatedAt   : undefined,
 				views       : 0,
+<<<<<<< HEAD
 				bleedSize: {
 					top: '.125in',
 					bottom: '.125in',
@@ -728,6 +731,9 @@ brew`);
 					width: '8.5in',
 					height: '11in',
 				},
+=======
+				direction   : 'ltr'
+>>>>>>> 99b7f600 (Add direction attribute to server and edit page)
 			});
 		});
 
@@ -765,6 +771,7 @@ brew`);
 			expect(google.newGoogleBrew).toHaveBeenCalled();
 			expect(res.status).toHaveBeenCalledWith(200);
 			expect(res.send).toHaveBeenCalledWith({
+<<<<<<< HEAD
 				_id          : '1',
 				authors      : ['test user'],
 				bleedSize: {
@@ -807,6 +814,31 @@ brew`);
 				},
 				updatedAt    : undefined,
 				views        : 0
+=======
+				_id         : '1',
+				authors     : ['test user'],
+				createdAt   : undefined,
+				description : '',
+				editId      : expect.any(String),
+				gDrive      : false,
+				pageCount   : 1,
+				published   : false,
+				renderer    : 'V3',
+				lang        : 'en',
+				shareId     : expect.any(String),
+				googleId    : expect.any(String),
+				style       : undefined,
+				tags        : [],
+				text        : undefined,
+				textBin     : undefined,
+				theme       : '5ePHB',
+				thumbnail   : '',
+				title       : 'asdf',
+				trashed     : false,
+				updatedAt   : undefined,
+				views       : 0,
+				direction   : 'ltr'
+>>>>>>> 99b7f600 (Add direction attribute to server and edit page)
 			});
 		});
 	});
@@ -1273,6 +1305,7 @@ brew`);
 					'renderer: legacy\n' +
 					'theme: 5ePHB\n' +
 					'lang: en\n' +
+					'direction: ltr\n' +
 					'\n' +
 					'```\n' +
 					'\n' +
@@ -1293,6 +1326,7 @@ brew`);
 			expect(testBrew.renderer).toEqual('legacy');
 			expect(testBrew.theme).toEqual('5ePHB');
 			expect(testBrew.lang).toEqual('en');
+			expect(testBrew.direction).toEqual('ltr');
 			// Style
 			expect(testBrew.style).toEqual('style\nstyle\nstyle\n');
 			// Text
