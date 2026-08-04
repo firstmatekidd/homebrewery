@@ -78,7 +78,8 @@ describe('Tests for api', ()=>{
 			version     : 1,
 			pageCount   : 1,
 			textBin     : '',
-			views       : 0
+			views       : 0,
+			direction   : 'ltr'
 		};
 		googleBrew = {
 			...hbBrew,
@@ -359,7 +360,8 @@ describe('Tests for api', ()=>{
 				style       : undefined,
 				trashed     : false,
 				updatedAt   : undefined,
-				views       : 0
+				views       : 0,
+				direction   : 'ltr'
 			});
 			expect(next).toHaveBeenCalled();
 			expect(api.getId).toHaveBeenCalledWith(req);
@@ -613,7 +615,8 @@ brew`);
 				title       : 'asdf',
 				trashed     : false,
 				updatedAt   : undefined,
-				views       : 0
+				views       : 0,
+				direction   : 'ltr'
 			});
 		});
 
@@ -672,7 +675,8 @@ brew`);
 				title       : 'asdf',
 				trashed     : false,
 				updatedAt   : undefined,
-				views       : 0
+				views       : 0,
+				direction   : 'ltr'
 			});
 		});
 	});
@@ -1159,6 +1163,7 @@ brew`);
 			expect(testBrew.renderer).toEqual('legacy');
 			expect(testBrew.theme).toEqual('5ePHB');
 			expect(testBrew.lang).toEqual('en');
+			expect(testBrew.direction).toEqual('ltr');
 			// Style
 			expect(testBrew.style).toEqual('style\nstyle\nstyle\n');
 			// Text

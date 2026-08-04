@@ -267,7 +267,7 @@ export default async function createApp(vite) {
 
 		const fields = ['title', 'pageCount', 'description', 'authors', 'lang',
 	  'published', 'views', 'shareId', 'createdAt', 'updatedAt',
-	  'lastViewed', 'thumbnail', 'tags'
+	  'lastViewed', 'thumbnail', 'tags', 'direction'
 		];
 
 		const metadata = fields.reduce((acc, field)=>{
@@ -305,7 +305,8 @@ export default async function createApp(vite) {
 			'updatedAt',
 			'lastViewed',
 			'thumbnail',
-			'tags'
+			'tags',
+			'direction',
 		];
 
 		let brews = await HomebrewModel.getByUser(req.params.username, ownAccount, fields)

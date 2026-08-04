@@ -141,9 +141,10 @@ const EditPage = (props)=>{
 			if(field == 'style')    localStorage.setItem(STYLEKEY, value);
 			if(field == 'snippets') localStorage.setItem(SNIPKEY, value);
 			if(field == 'metadata') localStorage.setItem(METAKEY, JSON.stringify({
-				renderer : value.renderer,
-				theme    : value.theme,
-				lang     : value.lang
+				renderer  : value.renderer,
+				theme     : value.theme,
+				lang      : value.lang,
+				direction : value.direction
 			}));
 		}
 	};

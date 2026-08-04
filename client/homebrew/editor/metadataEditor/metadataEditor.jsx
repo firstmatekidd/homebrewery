@@ -34,7 +34,8 @@ const MetadataEditor = createReactClass({
 				authors     : [],
 				renderer    : 'legacy',
 				theme       : '5ePHB',
-				lang        : 'en'
+				lang        : 'en',
+				direction   : 'ltr'
 			},
 
 			onChange    : ()=>{},
@@ -97,6 +98,13 @@ const MetadataEditor = createReactClass({
 				this.props.metadata.theme = '5ePHB';
 		}
 		this.props.onChange(this.props.metadata, 'renderer');
+	},
+
+	handleDirection : function(direction, e){
+		if(e.target.checked){
+			this.props.metadata.direction = direction;
+		}
+		this.props.onChange(this.props.direction, 'direction');
 	},
 
 	handlePublish : function(val){
@@ -354,6 +362,33 @@ const MetadataEditor = createReactClass({
 		</div>;
 	},
 
+	renderDirectionOptions : function(){
+		return <div className='field directions'>
+			<label>Direction</label>
+			<div className='value'>
+				<label key='ltr'>
+					<input
+						type='radio'
+						value = 'ltr'
+						name = 'direction'
+						checked={!this.props.metadata.direction || this.props.metadata.direction === 'ltr'}
+						onChange={(e)=>this.handleDirection('ltr', e)} />
+					Left To Right
+				</label>
+
+				<label key='rtl'>
+					<input
+						type='radio'
+						value = 'rtl'
+						name = 'direction'
+						checked={this.props.metadata.direction === 'rtl'}
+						onChange={(e)=>this.handleDirection('rtl', e)} />
+					Right To Left
+				</label>
+			</div>
+		</div>;
+	},
+
 	render : function(){
 		return <div className='metadataEditor'>
 			<h1>Properties Editor</h1>
@@ -406,6 +441,8 @@ const MetadataEditor = createReactClass({
 			{this.renderThemeDropdown()}
 
 			{this.renderRenderOptions()}
+
+			{this.renderDirectionOptions()}
 
 			<h2>Authors</h2>
 

@@ -20,14 +20,16 @@ const DEFAULT_BREW = {
 	published   : false,
 	pageCount   : 1,
 	gDrive      : false,
-	trashed     : false
-
+	trashed     : false,
+	direction   : 'ltr'
 };
+
 // Default values for older brews with missing properties
 // e.g., missing "renderer" is assumed to be "legacy"
 const DEFAULT_BREW_LOAD = _.defaults(
 	{
-		renderer : 'legacy',
+		renderer  : 'legacy',
+		direction : 'ltr',
 	},
 	DEFAULT_BREW);
 
